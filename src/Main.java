@@ -63,86 +63,97 @@ public class Main {
         }
         System.out.println("Number of elements divisible by 2: " + countDivisibleBy2);
 
-        int countDivisibleBy3 = 0;
+        //I renamed the variable for better readability.
+
+        int countNotDivisibleBy3 = 0;
         for (int num : numbers) {
             if (num % 3 != 0) {
-                countDivisibleBy3++;
+                countNotDivisibleBy3++;
             }
         }
-        System.out.println("Number of elements not divisible by 3: " + countDivisibleBy3);
+        System.out.println("Number of elements not divisible by 3: " + countNotDivisibleBy3);
 
-        int count73 = 0;
+        //I renamed the variable for better readability.
+
+        int occurrences73 = 0;
         for (int num : numbers) {
             if (num == 73) {
-                count73++;
+                occurrences73++;
             }
         }
-        System.out.println("Occurrences of 73:  " + count73);
+        System.out.println("Occurrences of 73:  " + occurrences73);
 
         //Check if the number 100 can be found in that array.
         //Check if any number greater than 100 can be found in that array.
         //Print the index of the first occurrence of 7 in the array - if 7 is not present, print -1.
 
-        boolean found100 = false;
+        //I renamed the variable for better readability.
+
+        boolean is100Found = false;
         for (int num : numbers) {
             if (num == 100) {
-                found100 = true;
+                is100Found = true;
                 break;
             }
         }
-        System.out.println("Is 100 in the array? " + found100);
+        System.out.println("Is 100 in the array? " + is100Found);
 
-        int indexof7 = -1;
+        //I renamed the variable for better readability.
+
+        int firstOccurrenceIndex = -1;
         for (int i = 0; i < numbers.length; i++) {
             if (numbers[i] == 7) {
-                indexof7 = i;
+                firstOccurrenceIndex = i;
                 break;
             }
         }
-        System.out.println("Index of first occurrance of 7: " + indexof7);
+        System.out.println("Index of first occurrance of 7: " + firstOccurrenceIndex);
 
         //Calculate the sum of the elements in the array.
         //Calculate the product of the elements in the array.
         //Calculate the following sum:
         //n1+n2+n3-n4+n5+n6+n7-n8 ,…
 
+        //Okey, im deleted "if (num >= 1 && num <= 8) { and "else"
+        //Now we can use all numbers!
+        //im called a "default" for finish switch statement!
+
         int num;
         for (int currentNum : numbers) {
             num = currentNum;
-            if (num >= 1 && num <= 8) {
-                System.out.println("Current num: " + num);
 
+            System.out.println("Current num: " + num);
 
-                switch (num) {
-                    case 1:
-                        System.out.println("N1");
-                        break;
-                    case 2:
-                        System.out.println("N2");
-                        break;
-                    case 3:
-                        System.out.println("N3");
-                        break;
-                    case 4:
-                        System.out.println("N4");
-                        break;
-                    case 5:
-                        System.out.println("N5");
-                        break;
-                    case 6:
-                        System.out.println("N6");
-                        break;
-                    case 7:
-                        System.out.println("N7");
-                        break;
-                    case 8:
-                        System.out.println("N8");
-                        break;
-                }
-            } else {
-                System.out.println("Skipping num: " + num);
+            switch (num) {
+                case 1:
+                    System.out.println("N1");
+                    break;
+                case 2:
+                    System.out.println("N2");
+                    break;
+                case 3:
+                    System.out.println("N3");
+                    break;
+                case 4:
+                    System.out.println("N4");
+                    break;
+                case 5:
+                    System.out.println("N5");
+                    break;
+                case 6:
+                    System.out.println("N6");
+                    break;
+                case 7:
+                    System.out.println("N7");
+                    break;
+                case 8:
+                    System.out.println("N8");
+                    break;
+                default:
+                    System.out.println("Skipping num: " + num);
             }
         }
+
         int sum = 0;
         for (int currentNum : numbers) {
             sum += currentNum;
@@ -155,15 +166,17 @@ public class Main {
         }
         System.out.println("Product: " + product);
 
-        int specialSum = 0;
+        //I renamed the variable for better readability.
+
+        int alternatingSum = 0;
         for (int i = 0; i < numbers.length; i++) {
             if (i % 2 == 0) {
-                specialSum += numbers[i];
+                alternatingSum += numbers[i];
             } else {
-                specialSum -= numbers[i];
+                alternatingSum -= numbers[i];
             }
         }
-        System.out.println("Special Sum: " + specialSum);
+        System.out.println("Special Sum: " + alternatingSum);
     }
 }
 
