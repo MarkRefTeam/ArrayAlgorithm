@@ -26,7 +26,7 @@ public class Main {
 
         System.out.println("Number of elements in array: " + Arrays.toString(numbers));
         System.out.println("-");
-        calculateArrayOperator(numbers);
+        performArrayOperations();
 
         //Print the largest element of the array.
         //Print the smallest element of the array.
@@ -176,7 +176,7 @@ public class Main {
         return array.length != 0;
     }
 
-    public static void calculateArrayOperator(int[] numbers) {
+    public static void performArrayOperations() {
 
         int sum = 0;
         int product = 1;
