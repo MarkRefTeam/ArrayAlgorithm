@@ -3,9 +3,21 @@ import org.w3c.dom.ls.LSOutput;
 import java.util.Arrays;
 
 public class Main {
+
     public static void main(String[] args) {
 
         System.out.println("Welcome to reflection algorithm");
+
+        boolean isSafe = main_protection();
+
+        if (isSafe) {
+            System.out.println("Proceeding with further operations");
+            System.out.println();   //Extra line for better readability.
+        } else {
+            System.out.println("Halting execution due to unsafe array.");
+            System.out.println();   //Extra line for better readability.
+        }
+
 
         //Create an array with predefined values
         //you don't need to get input from the user.
@@ -124,61 +136,88 @@ public class Main {
 
             System.out.println("Current num: " + num);
 
-            switch (num) {
-                case 1:
-                    System.out.println("N1");
-                    break;
-                case 2:
-                    System.out.println("N2");
-                    break;
-                case 3:
-                    System.out.println("N3");
-                    break;
-                case 4:
-                    System.out.println("N4");
-                    break;
-                case 5:
-                    System.out.println("N5");
-                    break;
-                case 6:
-                    System.out.println("N6");
-                    break;
-                case 7:
-                    System.out.println("N7");
-                    break;
-                case 8:
-                    System.out.println("N8");
-                    break;
-                default:
-                    System.out.println("Skipping num: " + num);
+            //I'm deleted the switch statement and created a new int[] array!
+
+            int[] arrayForSum = new int[8];
+
+            for (int i = 0; i < arrayForSum.length; i++) {
+                arrayForSum[i] = num * 2;
             }
+            System.out.println("Sum of array: " + Arrays.toString(arrayForSum));
         }
+
+        System.out.print("Index: ");
+        for (int i = 0; i < numbers.length; i++) {
+            System.out.print(i + " ");
+        }
+        System.out.println();   //Extra line for better readability.
 
         int sum = 0;
         for (int currentNum : numbers) {
             sum += currentNum;
         }
         System.out.println("Sum: " + sum);
+        System.out.println();   //Extra line for better readability.
 
-        int product = 1;
-        for (int currentNum : numbers) {
-            product *= currentNum;
-        }
-        System.out.println("Product: " + product);
+        System.out.println();   //Extra line for better readability.
+        System.out.println("Skipping every fourth element");
+
 
         //I renamed the variable for better readability.
+        //I fixed the results in "for"
 
+        System.out.print("Usage: ");
         int alternatingSum = 0;
         for (int i = 0; i < numbers.length; i++) {
-            if (i % 2 == 0) {
+            if (i % 4 == 3) {
                 alternatingSum += numbers[i];
+                System.out.print("+");
             } else {
                 alternatingSum -= numbers[i];
+                System.out.print("-");
             }
         }
         System.out.println("Special Sum: " + alternatingSum);
     }
+
+    //No , it isn't homework but i would like try something!
+    //We are adding an extra method here to ensure data protection and safety!
+
+    public static boolean main_protection() {
+
+        //I deleted (String[] args) because we don't need it!
+        //I realized that handling such cases is important for data safety.
+        //So, I created the main_protection() method to check if the array ->
+        //is empty before performing any operations.
+        //This prevents errors and ensures that the program runs smoothly without unexpected issues.
+        // If the array is empty, the method prints a warning message instead of processing invalid data.
+
+        //After i added an empty array but at this situation we have seen nothing in the console!
+        //So in the second run i wrote some number! Exmp:1-5 ! It isn't working...
+        //Okey , new tactic! I added "boolean" in the main method with "return false"/"return true" combination.
+        //and we won the game!!! When the program run is starting we can see now with early console message!
+
+
+        System.out.println("Protection and Safety");
+        int[] numbers = {1, 2, 3, 4, 5};
+
+        if (numbers.length == 0) {
+            System.out.println("No elements in array");
+            return false;
+        } else {
+            System.out.println("The array is safe to use");
+            return true;
+        }
+    }
 }
+
+
+
+
+
+
+
+
 
 
 
