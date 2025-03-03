@@ -1,5 +1,3 @@
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.Arrays;
 
 public class Main {
@@ -8,24 +6,24 @@ public class Main {
 
         System.out.println("Welcome to reflection algorithm");
 
-        boolean isSafe = main_protection();
-
-        if (isSafe) {
-            System.out.println("Proceeding with further operations");
-            System.out.println();   //Extra line for better readability.
-        } else {
-            System.out.println("Halting execution due to unsafe array.");
-            System.out.println();   //Extra line for better readability.
-        }
-
-
         //Create an array with predefined values
         //you don't need to get input from the user.
         //Then, perform the following operations:
 
         int[] numbers = {23, 45, 78, -10, 150, 3, 7, 8, 100, 73, 22, -50, 200};
-        System.out.println("Number of elements in array: ");
-        System.out.println(Arrays.toString(numbers));
+
+        boolean isSafe = isSafe(numbers);
+
+        if (isSafe) {
+            System.out.println("Proceeding with further operations");
+            System.out.println("-");   //Extra line for better readability.
+        } else {
+            System.out.println("Halting execution due to unsafe array.");
+            System.out.println("-");   //Extra line for better readability.
+        }
+        System.out.println("Number of elements in array: " + Arrays.toString(numbers));
+        System.out.println("-");
+        calculateArrayOperator(numbers);
 
         //Print the largest element of the array.
         //Print the smallest element of the array.
@@ -121,22 +119,11 @@ public class Main {
         }
         System.out.println("Index of first occurrance of 7: " + firstOccurrenceIndex);
 
-        //Calculate the sum of the elements in the array.
-        //Calculate the product of the elements in the array.
-        //Calculate the following sum:
-        //n1+n2+n3-n4+n5+n6+n7-n8 ,…
-
-        //Okey, im deleted "if (num >= 1 && num <= 8) { and "else"
-        //Now we can use all numbers!
-        //im called a "default" for finish switch statement!
-
         int num;
         for (int currentNum : numbers) {
             num = currentNum;
 
             System.out.println("Current num: " + num);
-
-            //I'm deleted the switch statement and created a new int[] array!
 
             int[] arrayForSum = new int[8];
 
@@ -180,33 +167,23 @@ public class Main {
         System.out.println("Special Sum: " + alternatingSum);
     }
 
-    //No , it isn't homework but i would like try something!
-    //We are adding an extra method here to ensure data protection and safety!
-
-    public static boolean main_protection() {
-
-        //I deleted (String[] args) because we don't need it!
-        //I realized that handling such cases is important for data safety.
-        //So, I created the main_protection() method to check if the array ->
-        //is empty before performing any operations.
-        //This prevents errors and ensures that the program runs smoothly without unexpected issues.
-        // If the array is empty, the method prints a warning message instead of processing invalid data.
-
-        //After i added an empty array but at this situation we have seen nothing in the console!
-        //So in the second run i wrote some number! Exmp:1-5 ! It isn't working...
-        //Okey , new tactic! I added "boolean" in the main method with "return false"/"return true" combination.
-        //and we won the game!!! When the program run is starting we can see now with early console message!
-
+    public static boolean isSafe(int[] numbers) {
 
         System.out.println("Protection and Safety");
-        int[] numbers = {1, 2, 3, 4, 5};
+        return numbers.length != 0;
+    }
 
-        if (numbers.length == 0) {
-            System.out.println("No elements in array");
-            return false;
-        } else {
-            System.out.println("The array is safe to use");
-            return true;
+    public static void calculateArrayOperator(int[] numbers) {
+
+        int sum = 0;
+        int product = 1;
+
+        for (int num : numbers) {
+            sum += num;
+            product *= num;
+
+            System.out.println("Sum of array: " + sum);
+            System.out.println("Product of array: " + product);
         }
     }
 }
