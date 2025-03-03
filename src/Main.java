@@ -2,25 +2,28 @@ import java.util.Arrays;
 
 public class Main {
 
+    //Create an array with predefined values
+    //you don't need to get input from the user.
+    //Then, perform the following operations:
+
+    static int[] numbers = {23, 45, 78, -10, 150, 3, 7, 8, 100, 73, 22, -50, 200};
+
     public static void main(String[] args) {
 
         System.out.println("Welcome to reflection algorithm");
-
-        //Create an array with predefined values
-        //you don't need to get input from the user.
-        //Then, perform the following operations:
-
-        int[] numbers = {23, 45, 78, -10, 150, 3, 7, 8, 100, 73, 22, -50, 200};
 
         boolean isSafe = isSafe(numbers);
 
         if (isSafe) {
             System.out.println("Proceeding with further operations");
             System.out.println("-");   //Extra line for better readability.
+            System.out.println("No elements in array");
         } else {
             System.out.println("Halting execution due to unsafe array.");
             System.out.println("-");   //Extra line for better readability.
+            System.out.println("The array is safe to use");
         }
+
         System.out.println("Number of elements in array: " + Arrays.toString(numbers));
         System.out.println("-");
         calculateArrayOperator(numbers);
@@ -167,10 +170,10 @@ public class Main {
         System.out.println("Special Sum: " + alternatingSum);
     }
 
-    public static boolean isSafe(int[] numbers) {
+    public static boolean isSafe(int[] array) {
 
         System.out.println("Protection and Safety");
-        return numbers.length != 0;
+        return array.length != 0;
     }
 
     public static void calculateArrayOperator(int[] numbers) {
@@ -181,12 +184,13 @@ public class Main {
         for (int num : numbers) {
             sum += num;
             product *= num;
-
-            System.out.println("Sum of array: " + sum);
-            System.out.println("Product of array: " + product);
         }
+        System.out.println("Sum of array: " + sum);
+        System.out.println("Product of array: " + product);
     }
 }
+
+
 
 
 
